@@ -47,15 +47,15 @@ jobs:
           skip_unpack: true
           branch: ${{ github.base_ref || github.head_ref || github.ref_name }}
 
-      - name: Uncompress bazel cache
-        run: |
-          unzip bazel-cache.zip
-          mkdir -p ~/.cache/bazel
-          tar_file="bazel-cache.tar.gz" && \
-            [ -f "$tar_file" ] && \
-            tar -xzvf "$tar_file" -C ~/.cache/bazel && \
-            rm bazel-cache.tar.gz
-          exit 0
+      # - name: Uncompress bazel cache
+      #   run: |
+      #     unzip bazel-cache.zip
+      #     mkdir -p ~/.cache/bazel
+      #     tar_file="bazel-cache.tar.gz" && \
+      #       [ -f "$tar_file" ] && \
+      #       tar -xzvf "$tar_file" -C ~/.cache/bazel && \
+      #       rm bazel-cache.tar.gz
+      #     exit 0
 
       - name: Build protobuf deps
         run: |
